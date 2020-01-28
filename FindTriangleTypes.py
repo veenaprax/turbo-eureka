@@ -1,14 +1,13 @@
 import unittest
 
-
+# Check if right number of parameters
 def classify_triangle(sides):
-    if min(sides) <= 0:
+    if min(sides) <= 0 or sum(sorted(sides)[:-1]) < sorted(sides)[-1] or len(sides) > 3 or len(sides) < 3:
         return False
-    if sum(sorted(sides)[:-1]) < sorted(sides)[-1]:
-        return False
-    return True
+    else:
+        return True
 
-
+# Check if all sides are equal
 def equilateral(sides):
     triangle = classify_triangle(sides)
     if triangle:
@@ -17,7 +16,7 @@ def equilateral(sides):
     else:
         return False
 
-
+# Check if 2 sides are equal
 def isosceles(sides):
     triangle = classify_triangle(sides)
     if triangle:
@@ -26,13 +25,14 @@ def isosceles(sides):
     else:
         return False
 
-
+# Check if all sides are different
 def scalene(sides):
     if equilateral(sides) or isosceles(sides):
         return False
     return classify_triangle(sides)
 
 
+# Check if 3 sides equal to a2 + b2 = c2
 def right_angled(sides):
     triangle = classify_triangle(sides)
     if triangle:
@@ -41,7 +41,7 @@ def right_angled(sides):
     else:
         return False
 
-
+# Test with different parameters. Input different values
 class TestEquilateralTriangle(unittest.TestCase):
     def test_all_sides_are_equal(self):
         self.assertIs(equilateral([2, 2, 2]), True)
@@ -90,6 +90,17 @@ class TestRightAngleTriangle(unittest.TestCase):
 
     def test_third_triangle_inequality_violation(self):
         self.assertIs(right_angled([3, 1, 1]), False)
+
+
+class TestIsATriangle(unittest.TestCase):
+    def test_all_parameters(self):
+        self.assertIs(classify_triangle([2, 2, 2, 4]), False)
+
+    def test_less_parameters(self):
+        self.assertIs(classify_triangle([2, 1]), False)
+
+    def test_right_parameters(self):
+        self.assertIs(classify_triangle([2, 2, 3]), True)
 
 
 if __name__ == "__main__":
