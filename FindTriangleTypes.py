@@ -102,6 +102,11 @@ class TestIsATriangle(unittest.TestCase):
     def test_right_parameters(self):
         self.assertIs(classify_triangle([2, 2, 3]), True)
 
+    def test_float_parameters(self):
+        self.assertIs(classify_triangle([0.5, 2, 3]), False)
+
+    def test_zero_parameters(self):
+        self.assertIs(classify_triangle([0, 0, 0]), False)
 
 if __name__ == "__main__":
     unittest.main()
