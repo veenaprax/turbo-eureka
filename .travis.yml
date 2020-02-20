@@ -9,3 +9,5 @@ sudo apt-get install python3-json
 script:
  - python -m unittest TestTriangle
  - python -m unittest Homework04a
+ - python -m unittest Testingsync
+ 
