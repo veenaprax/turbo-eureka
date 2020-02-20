@@ -35,10 +35,10 @@ class TestIsgitcommitscount(unittest.TestCase):
 
 if __name__ == '__main__':
     print('Begin')
-    #username ='richkempinski'
+    username ='richkempinski'
     #username=input('Enter the UserID:')
     #reponame = input('Enter the Repository Name:')
     #reponame ='helloworld'
-    #url = 'https://api.github.com/repos/'+username+'/'+reponame+'/commits'
-    #getrepositoryname(username,url)
+    url = 'https://api.github.com/repos/'+username+'/'+reponame+'/commits'
+    getrepositoryname(username,url)
     unittest.main()
