@@ -1,11 +1,5 @@
-language: python
-python:
- - "3.5"
-install:
-sudo apt-get install python3-requests
-sudo apt-get install python3-json
  
 # command to run tests
 script:
  - python -m unittest TestTriangle
- - python -m unittest Homework04a
+ - python -m unittest find_triangle_types
