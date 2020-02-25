@@ -8,3 +8,4 @@ sudo apt-get install python3-json
 script:
  - python -m unittest TestTriangle
  - python -m unittest find_triangle_types
+ - python -m unittest Homework04a
